@@ -20,16 +20,12 @@ services:
     container_name: app
     volumes:
       - ./:/workspace/
-    # working_dir: /project
     tty: true
     build: .
     ports:
       - 8080:8080
-    # environment:
-    #   MYSQL_ROOT_PASSWORD: "password"
-    #   MYSQL_DATABASE: "moneyhook"
-    #   MYSQL_USER: "moneyhook"
-    #   MYSQL_PASSWORD: "password"
-    # command: 
-      # - air
-    # command: sh -c 'go mod tidy && air'
+    environment:
+      MYSQL_HOST: "sql"
+      MYSQL_DATABASE: "moneyhook"
+      MYSQL_USER: "moneyhook"
+      MYSQL_PASSWORD: "password"

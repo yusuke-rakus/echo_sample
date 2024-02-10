@@ -158,5 +158,11 @@ func main(){
         fmt.Println(k, v) // 佐藤 100, 鈴木 90, 伊藤 80
     }
 
+    // 実用的ver
+	result_map := map[int]string{}
+
+    result_map[1] = "value1"
+    result_map[2] = "value2"
+
 }
 ```

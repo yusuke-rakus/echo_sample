@@ -17,14 +17,12 @@ RUN apt-get update \
 	&& go install -v honnef.co/go/tools/cmd/staticcheck@latest \
 	&& go install -v golang.org/x/tools/cmd/goimports@latest
 
-# RUN cd /workspace/app && go mod tidy
-
 # WORKDIR /workspace/app
 # RUN go mod tidy
 
 ENV CGO_ENABLED=0 \
   GOOS=linux \
-  GOARCH=amd64
+  GOARCH=arm64
 
 EXPOSE 8080
 

@@ -91,3 +91,41 @@ func main() {
 	liza_account.introduction()
 }
 ```
+
+
+## ポインタ(* &)
+```go
+package main
+
+import "fmt"
+
+func main(){
+	var var1 int = 10
+	var2 var2 *int = &var1
+
+	fmt.Println(var1)  // 10
+	fmt.Println(var2)  // 0x10414020
+	fmt.Println(*var2) // 10
+}
+```
+
+
+## 構造体とポインタ
+```go
+package main
+
+import "fmt"
+
+type Person struct {
+	Name string
+	age int
+}
+
+func main(){
+	liza := Person{"liza", 18}
+	person1 := &liza
+	(*person1).age = 20
+	person1.age = 30
+	fmt.Println(person1) // {liza, 30}
+}
+```

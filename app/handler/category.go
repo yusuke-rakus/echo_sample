@@ -13,7 +13,8 @@ func (h *Handler) GetCategoryList(c echo.Context) error {
 		category_id   *int
 		category_name *string
 	)
-	var result []string
+	result := map[int]string{}
+	var result_list []string
 
 	db := db.New()
 	rows, err := db.Query("SELECT category_id, category_name FROM category;")
@@ -27,17 +28,16 @@ func (h *Handler) GetCategoryList(c echo.Context) error {
 		if err != nil {
 			fmt.Println("id_name_error")
 		} else {
-			result = append(result, *category_name)
-			fmt.Println(*category_id, *category_name)
+			result_list = append(result_list, *category_name)
+			result[*category_id] = *category_name
 		}
-		// if err := rows.Scan(&category_id); err != nil {
-		// 	fmt.Println("id_error")
-		// }
-		// if err := rows.Scan(&category_name); err != nil {
-		// 	fmt.Println("name_error")
-		// }
-		// fmt.Println(*category_id, *category_name)
-		// fmt.Println(*category_id)
+	}
+
+	// for k, v := range result {
+	// 	fmt.Println(k, v)
+	// }
+	for i, v := range result_list {
+		fmt.Println(i, ": ", v)
 	}
 
 	return c.JSON(http.StatusOK, result)

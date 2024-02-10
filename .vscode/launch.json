@@ -6,10 +6,10 @@
         "type": "go",
         "request": "attach",
         "mode": "remote",
-        "remotePath": "/workspace/app",
+        "remotePath": "/app",
         "host": "localhost",
         "port": 2345,
-        "cwd": "${workspaceRoot}/app",
+        "cwd": "/app",
         "showLog": true
       }
     ]
