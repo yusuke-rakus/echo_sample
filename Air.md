@@ -17,8 +17,6 @@ Golangのインストールが済み、開発環境が整っていること
 
 zshを使っている場合、`alias air="$(go env GOPATH)/bin/air"`を.zshrcに追加してパスを通す
 
-bashの場合は不明 (TODO)
-
 ### インストールの確認
 `air -v`で以下のような表示ならOK
 ```

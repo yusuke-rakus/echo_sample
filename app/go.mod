@@ -20,11 +20,4 @@ require (
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	// gopls
-	// gotests
-	// gomodifytags
-	// impl
-	// goplay
-	// dlv
-	// staticcheck
 )

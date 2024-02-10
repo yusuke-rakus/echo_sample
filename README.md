@@ -11,8 +11,8 @@
 
 ## 実行コマンド
 ```
-$ air -c .air.toml // airのパスが設定されてないとエラーになる
-$ /go/bin/linux_amd64/air -c .air.toml
+$ cd app
+$ air -c .air.toml
 ```
 
 

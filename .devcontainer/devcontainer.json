@@ -1,5 +1,5 @@
 {
-	"name": "Echo Dev Container",
+	"name": "Echo Container",
 	"dockerComposeFile": ["../compose.yaml"],
 
 	"initializeCommand": "ls -al",

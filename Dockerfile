@@ -1,26 +1,30 @@
 FROM golang:1.22rc1-bullseye
 
-ENV CGO_ENABLED=0 \
-  GOOS=linux \
-  GOARCH=amd64
 ENV PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
 ENV PATH="$PATH:$(go env GOPATH)/bin"
 
-WORKDIR /app/
 COPY . .
 
 RUN apt-get update \
-  && apt-get install -y
+	&& apt-get install -y \
+	&& go install github.com/cosmtrek/air@latest \
+	&& go install -v golang.org/x/tools/gopls@latest \
+	&& go install -v github.com/cweill/gotests/gotests@v1.6.0 \
+	&& go install -v github.com/fatih/gomodifytags@v1.16.0 \
+	&& go install -v github.com/josharian/impl@v1.1.0 \
+	&& go install -v github.com/haya14busa/goplay/cmd/goplay@v1.0.0 \
+	&& go install -v github.com/go-delve/delve/cmd/dlv@latest \
+	&& go install -v honnef.co/go/tools/cmd/staticcheck@latest \
+	&& go install -v golang.org/x/tools/cmd/goimports@latest
 
-# /appで実行しないとエラー出る
+# RUN cd /workspace/app && go mod tidy
+
+# WORKDIR /workspace/app
 # RUN go mod tidy
 
-RUN go install github.com/cosmtrek/air@latest \
-  && go install github.com/go-delve/delve/cmd/dlv@latest
-
-# RUN go mod init main \
-#   && go mod tidy \
-#   && go build
+ENV CGO_ENABLED=0 \
+  GOOS=linux \
+  GOARCH=amd64
 
 EXPOSE 8080
 

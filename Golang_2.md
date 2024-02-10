@@ -48,9 +48,9 @@ func (p Person) set_age(age int) Person {
 	return p
 }
 
-    func (p Person) introduction() {
-        fmt.Println("My name is ", p.Name, "I'm ", p.age, "yars old")
-    }
+func (p Person) introduction() {
+    fmt.Println("My name is ", p.Name, "I'm ", p.age, "yars old")
+}
 
 func main() {
 	var liza Person
