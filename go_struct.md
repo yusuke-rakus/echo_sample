@@ -10,7 +10,7 @@ type Person struct {
     age int // 先頭が小文字の場合、外部からアクセスできない
 }
 
-func main(){
+func main() {
     // Person型のmikeを作成(1)
     var mike Person
     mike.Name = "Mike"
@@ -106,26 +106,5 @@ func main(){
 	fmt.Println(var1)  // 10
 	fmt.Println(var2)  // 0x10414020
 	fmt.Println(*var2) // 10
-}
-```
-
-
-## 構造体とポインタ
-```go
-package main
-
-import "fmt"
-
-type Person struct {
-	Name string
-	age int
-}
-
-func main(){
-	liza := Person{"liza", 18}
-	person1 := &liza
-	(*person1).age = 20
-	person1.age = 30
-	fmt.Println(person1) // {liza, 30}
 }
 ```

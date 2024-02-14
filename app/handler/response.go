@@ -1,17 +1,25 @@
 package handler
 
-// import "example.com/m/model"
+import (
+	"example.com/m/model"
+)
 
-// type categoryResponse struct {
-// 	category_id   int    `json:"category_id"`
-// 	category_name string `json:"category_name"`
-// }
+type categoryResponse struct {
+	Category_id   int    `json:"categoryId"`
+	Category_name string `json:"categoryName"`
+}
 
-// type categoryListResponse struct {
-// 	CategoryList []*categoryResponse `json:"category_list"`
-// }
+type categoryListResponse struct {
+	CategoryList []categoryResponse `json:"categoryList"`
+}
 
-// func getCategoryListResponse(a *model.Category) *categoryListResponse {
-// 	cl := new(categoryResponse)
+func getCategoryListResponse(data *model.CategoryList) *categoryListResponse {
+	cl := &categoryListResponse{}
 
-// }
+	for _, category := range data.CategoryList {
+		cr := &categoryResponse{Category_id: category.CategoryId, Category_name: category.CategoryName}
+		cl.CategoryList = append(cl.CategoryList, *cr)
+	}
+
+	return cl
+}

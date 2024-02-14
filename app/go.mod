@@ -5,7 +5,7 @@ go 1.22rc1
 require (
 	github.com/go-sql-driver/mysql v1.7.1
 	github.com/labstack/echo/v4 v4.11.4
-	gorm.io/gorm v1.25.6
+	gorm.io/gorm v1.25.7-0.20240204074919-46816ad31dde
 )
 
 require (
@@ -20,4 +20,5 @@ require (
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+	gorm.io/driver/mysql v1.5.4
 )

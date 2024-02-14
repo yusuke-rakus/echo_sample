@@ -1,5 +1,7 @@
 package category
 
+import "example.com/m/model"
+
 type Store interface {
-	GetCategoryList() error
+	GetCategoryList() *model.CategoryList
 }
