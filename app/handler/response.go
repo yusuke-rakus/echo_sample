@@ -23,3 +23,14 @@ func getCategoryListResponse(data *model.CategoryList) *categoryListResponse {
 
 	return cl
 }
+
+func getCategoryWithSubCategoryListResponse(data *model.CategoryList) *categoryListResponse {
+	cl := &categoryListResponse{}
+
+	for _, category := range data.CategoryList {
+		cr := &categoryResponse{Category_id: category.CategoryId, Category_name: category.CategoryName}
+		cl.CategoryList = append(cl.CategoryList, *cr)
+	}
+
+	return cl
+}
